@@ -30,7 +30,7 @@ const coupon =  mongoose.model('data', schema)
 app.use(express.urlencoded({ extended:false }))
 
 //POST request
-app.post('/add', async(req, res)=>{
+app.post('/api/add', async(req, res)=>{
     const { body } = req
     const result = await coupon.create({
         Title:body.title,
@@ -41,7 +41,7 @@ app.post('/add', async(req, res)=>{
     return res.status(201).json(result)
 })
 
-app.get('/add',async(req, res)=>{
+app.get('/api/add',async(req, res)=>{
     const allCoupon = await coupon.find({})
     return res.json(allCoupon)
 })
